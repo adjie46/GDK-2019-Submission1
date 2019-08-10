@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DetailMovie"
+    android:id="@+id/main_layout">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_layout"
+        android:fitsSystemWindows="true"
+        tools:ignore="NotSibling">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:layout_marginBottom="431dp"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed"
+                app:titleEnabled="true">
+
+                <com.github.florent37.shapeofview.shapes.DiagonalView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="parallax"
+                    app:shape_diagonal_angle="15"
+                    app:shape_diagonal_position="bottom"
+                    tools:targetApi="lollipop">
+
+                    <ImageView
+                        android:id="@+id/poster_cover"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cover_poster_aquaman"
+                        android:contentDescription="@string/poster_cover_description" />
+
+                </com.github.florent37.shapeofview.shapes.DiagonalView>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:theme="@style/AppTheme.NoActionBar"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+                </FrameLayout>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_alignTop="@id/cardView"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/poster_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/poster_aquaman"
+                        android:contentDescription="@string/poster_image_description" />
+
+                </android.support.v7.widget.CardView>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/header_layout"
+            android:scrollingCache="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/poster_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/poster_title_movie_text"
+                        android:textSize="@dimen/large_size"
+                        android:layout_marginRight="@dimen/margin_small"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="@dimen/margin_small" />
+
+
+                </LinearLayout>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/orange"
+                    app:cardBackgroundColor="@color/orange"
+                    app:cardCornerRadius="@dimen/small_size"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/small_size"
+                    android:layout_marginTop="@dimen/small_size"
+                    android:layout_marginStart="@dimen/margin_small">
+
+                    <TextView
+                        android:id="@+id/poster_duration"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/poster_duration_text"
+                        android:padding="@dimen/small_size"
+                        android:textAlignment="center"
+                        android:textColor="@color/putih"
+                        android:textSize="@dimen/small_size" />
+
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/poster_release_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/abuabu"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:text="@string/poster_release_date_text"
+                    android:layout_marginStart="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/poster_director"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/abuabu"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:text="@string/poster_director_text"
+                    android:layout_marginStart="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/poster_categoty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/abuabu"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:text="@string/poster_category_text"
+                    android:layout_marginStart="@dimen/margin_small" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:clickable="false"
+                        android:numStars="5"
+                        android:rating="4"
+                        android:stepSize="0.5"
+                        android:theme="@style/RatingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Indicator"
+                        android:progressTint="@color/yellow_600"
+                        android:progressBackgroundTint="@color/grey_60"
+                        android:secondaryProgressTint="@android:color/transparent"
+                        tools:targetApi="lollipop"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/poster_rating_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/poster_rating_text"
+                        android:textSize="@dimen/large_size"
+                        android:layout_marginRight="@dimen/margin_small"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="@dimen/margin_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/poster_rating_count_text"
+                        android:textSize="@dimen/small_size"
+                        android:layout_marginRight="@dimen/margin_small"
+                        android:layout_marginEnd="@dimen/margin_small" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/poster_description_text"
+                    android:gravity="center|start"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="@dimen/medium_size"
+                    android:layout_marginStart="@dimen/margin_small" />
+
+                <TextView
+                    android:id="@+id/poster_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:text="@string/description_text"
+                    android:layout_marginStart="@dimen/margin_small" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:gravity="right|bottom"
+        android:padding="20dp"
+        android:clipToPadding="true"
+        tools:ignore="RtlHardcoded">
+
+        <Button
+            android:id="@+id/btn_poster_like"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_background"
+            android:drawableTop="@drawable/ic_star_border_black_24dp"
+            android:padding="23dp"
+            tools:ignore="RtlHardcoded" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
